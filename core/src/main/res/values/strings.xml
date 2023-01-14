@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">base</string>
+
+    <integer name="transition_duration">220</integer>
+    <integer name="transition_vertical_duration">380</integer>
+    <integer name="alpha_transition_duration">220</integer>
+</resources>
