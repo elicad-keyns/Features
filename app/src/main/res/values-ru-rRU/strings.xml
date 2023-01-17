@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Фичи</string>
+
+    <string name="questions">Вопросы</string>
+    <string name="rick_and_morty">Рик и Морти</string>
+</resources>

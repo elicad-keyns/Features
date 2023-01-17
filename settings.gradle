@@ -14,6 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Features"
 include ':app'
-include ':questions'
+include ':rickandmorty'
 include ':core'
 include ':network'

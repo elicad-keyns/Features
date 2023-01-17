@@ -11,7 +11,7 @@ import ek.core.AnimationSets
 import ek.core.Navigation
 import ek.core.infrastructure.MviView
 import ek.features.databinding.FragmentMainBinding
-import ek.questions.presentation.questions.QuestionsFragment
+import ek.rickandmorty.presentation.episodes.EpisodesFragment
 
 @AndroidEntryPoint
 class MainFragment : Fragment(), MviView<MainState, MainEvent> {
@@ -67,8 +67,8 @@ class MainFragment : Fragment(), MviView<MainState, MainEvent> {
 
     private fun startQuestionsScreen() = with(activity as Navigation) {
         navigate(
-            QuestionsFragment.TAG,
-            QuestionsFragment.newInstance(),
+            EpisodesFragment.TAG,
+            EpisodesFragment.newInstance(),
             AnimationSets.CROSS_FADE
         )
     }

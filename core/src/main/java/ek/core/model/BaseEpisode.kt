@@ -6,5 +6,5 @@ data class BaseEpisode (
 	@SerializedName("info")
 	val info : Info,
 	@SerializedName("results")
-	val results : List<Episodes>
+	val results : List<Episode>
 )

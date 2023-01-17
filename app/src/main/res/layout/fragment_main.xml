@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,19 +27,7 @@
             android:id="@+id/questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/questions" />
-
-        <Button
-            android:id="@+id/q"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/questions" />
-
-        <Button
-            android:id="@+id/qq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/questions" />
+            android:text="@string/rick_and_morty" />
 
     </LinearLayout>
 

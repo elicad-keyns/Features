@@ -1,5 +1,6 @@
 package ek.network.services
 
+import android.util.Log
 import ek.core.model.BaseEpisode
 import ek.network.model.Constants
 import io.reactivex.Single
@@ -10,7 +11,7 @@ import retrofit2.http.GET
 
 interface RAMApiService {
 
-    @GET("/episode")
+    @GET("episode/")
     fun getAllEpisodes(): Single<BaseEpisode>
 
     companion object Factory {

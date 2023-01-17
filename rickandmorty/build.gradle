@@ -1,16 +1,15 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
 
 android {
-    namespace 'ek.features'
+    namespace 'ek.rickandmorty'
     compileSdk 33
 
     defaultConfig {
-        applicationId "ek.features"
         minSdk 29
         targetSdk 33
         versionCode 1
@@ -40,14 +39,8 @@ android {
     }
 }
 
-// Allow references to generated code
-kapt {
-    correctErrorTypes true
-}
-
 dependencies {
     implementation project(':core')
-    implementation project(':rickandmorty')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -55,7 +48,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(path: ':network')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -70,4 +63,10 @@ dependencies {
 
     // RxAndroid
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+
 }
