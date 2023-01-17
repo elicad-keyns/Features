@@ -2,11 +2,15 @@ package ek.core
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ek.features.base.infrastructure.MviViewEvent
-import ek.features.base.infrastructure.MviViewIntent
-import ek.features.base.infrastructure.MviViewState
+import ek.core.infrastructure.MviViewEvent
+import ek.core.infrastructure.MviViewIntent
+import ek.core.infrastructure.MviViewState
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 abstract class BaseViewModel<Intent : MviViewIntent, Event : MviViewEvent, State: MviViewState> : ViewModel() {
+
+    protected val compositeDisposable by lazy(::CompositeDisposable)
 
     private var isStarted: Boolean = false
 
@@ -28,6 +32,11 @@ abstract class BaseViewModel<Intent : MviViewIntent, Event : MviViewEvent, State
     protected abstract fun State.reduce(intent: Intent): State
 
     protected abstract fun processSideEffect(intent: Intent)
+
+    protected fun Disposable.disposeOnCleared(): Disposable {
+        compositeDisposable.add(this)
+        return this
+    }
 
     protected fun pushEvent(event: Event) {
         eventListener.value = event

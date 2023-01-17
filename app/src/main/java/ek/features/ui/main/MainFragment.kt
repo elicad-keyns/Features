@@ -9,8 +9,7 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import ek.core.AnimationSets
 import ek.core.Navigation
-import ek.features.R
-import ek.features.base.infrastructure.MviView
+import ek.core.infrastructure.MviView
 import ek.features.databinding.FragmentMainBinding
 import ek.questions.presentation.questions.QuestionsFragment
 

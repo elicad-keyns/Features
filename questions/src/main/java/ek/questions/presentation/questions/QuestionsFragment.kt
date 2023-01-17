@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import ek.features.base.infrastructure.MviView
+import ek.core.infrastructure.MviView
 import ek.questions.databinding.FragmentQuestionsBinding
 
 @AndroidEntryPoint

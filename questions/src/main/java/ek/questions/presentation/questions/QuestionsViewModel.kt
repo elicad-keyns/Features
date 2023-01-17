@@ -1,10 +1,19 @@
 package ek.questions.presentation.questions
 
+import android.database.Observable
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ek.core.BaseViewModel
 import ek.core.LiveEvent
+import ek.network.services.RAMApiService
 import ek.questions.data.QuestionsRepository
+import io.reactivex.Scheduler
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.internal.schedulers.RxThreadFactory
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,6 +43,22 @@ class QuestionsViewModel @Inject constructor(
     private fun onViewCreated() {
         val quest = repository.requestQuestions()
         pushIntent(QuestionsIntent.QuestReloaded(quest))
+        getAllEpisodes()
+    }
+
+    private fun getAllEpisodes() {
+        repository.requestAllEpisodes()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { episodes ->
+                    Log.d("EPISODES", episodes.toString())
+                },
+                { error ->
+                    Log.d("EPISODES", error.toString())
+                    error.printStackTrace()
+                }
+            ).disposeOnCleared()
     }
 
 }

@@ -16,3 +16,4 @@ rootProject.name = "Features"
 include ':app'
 include ':questions'
 include ':core'
+include ':network'
