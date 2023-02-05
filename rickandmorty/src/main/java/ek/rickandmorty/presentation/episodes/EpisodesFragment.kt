@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import ek.core.infrastructure.MviView
+import ek.core.setNavigationIcon
+import ek.rickandmorty.R
 import ek.rickandmorty.databinding.FragmentEpisodesBinding
 import ek.rickandmorty.domain.EpisodesAdapter
 
@@ -28,6 +30,9 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
         _binding = FragmentEpisodesBinding.inflate(inflater, container, false).apply {
             episodes.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             episodes.adapter = EpisodesAdapter() { }
+
+            toolbar.title = getString(ek.base.R.string.episodes).uppercase()
+            toolbar.setNavigationIcon { activity?.onBackPressedDispatcher?.onBackPressed() }
         }
         return binding.root
     }

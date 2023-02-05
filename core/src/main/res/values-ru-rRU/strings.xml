@@ -4,4 +4,6 @@
 
     <string name="questions">Вопросы</string>
     <string name="rick_and_morty">Рик и Морти</string>
+    <string name="episodes">Эпизоды</string>
+    <string name="open_ai">Open AI</string>
 </resources>

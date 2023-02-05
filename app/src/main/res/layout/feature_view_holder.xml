@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/xxx_tiny"
+    app:cardCornerRadius="@dimen/small">
+
+    <LinearLayout
+        android:id="@+id/card_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#40FFFFFF"
+        android:orientation="vertical"
+        android:padding="@dimen/xxx_small">
+
+        <TextView
+            android:id="@+id/feature_category"
+            style="@style/TextAppearance.MdcTypographyStyles.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/xxx_small"
+            tools:text="Category" />
+
+        <TextView
+            android:id="@+id/feature_name"
+            style="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Feature" />
+
+        <TextView
+            android:id="@+id/feature_description"
+            style="@style/TextAppearance.MdcTypographyStyles.Overline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxx_tiny"
+            tools:text="Description" />
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

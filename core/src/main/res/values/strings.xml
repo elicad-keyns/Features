@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">base</string>
 
+    <string name="episodes">Episodes</string>
+
     <integer name="transition_duration">220</integer>
     <integer name="transition_vertical_duration">380</integer>
     <integer name="alpha_transition_duration">220</integer>
@@ -30,4 +32,9 @@
     <dimen name="xx_tiny">6dp</dimen>
     <dimen name="x_tiny">4dp</dimen>
     <dimen name="tiny">2dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <string name="questions">Questions</string>
+    <string name="rick_and_morty">Rick and Morty</string>
+    <string name="open_ai">Open AI</string>
 </resources>

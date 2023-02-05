@@ -3,32 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/xxx_small"
-    android:paddingStart="@dimen/xxx_small"
-    android:paddingEnd="@dimen/xxx_small">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/section_name"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="EPISODES"
-        style="@style/TextAppearance.MdcTypographyStyles.Headline5"
-        android:textStyle="bold"
+        android:layout_height="@dimen/toolbar_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:title="@string/episodes" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/episodes"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/xxx_tiny"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/section_name"
+        android:paddingStart="@dimen/xxx_small"
+        android:paddingEnd="@dimen/xxx_small"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/episode_view_holder"
-        tools:itemCount="5"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:itemCount="5"
+        tools:listitem="@layout/episode_view_holder" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

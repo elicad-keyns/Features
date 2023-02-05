@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Features</string>
-
-    <string name="questions">Questions</string>
-    <string name="rick_and_morty">Rick and Morty</string>
 </resources>

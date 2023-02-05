@@ -9,9 +9,9 @@ import ek.rickandmorty.presentation.viewholder.EpisodeViewHolder
 
 class EpisodesAdapter(
     private val onClick: (Episode) -> Unit
-): RecyclerView.Adapter<EpisodeViewHolder>() {
+) : RecyclerView.Adapter<EpisodeViewHolder>() {
 
-    var episodes: List<Episode> = listOf()
+    private var episodes: List<Episode> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
