@@ -1,4 +1,4 @@
-package ek.features.base.infrastructure
+package ek.core.infrastructure
 
 interface MviView<State: MviViewState, Event: MviViewEvent> {
 

@@ -1,7 +1,40 @@
 <resources>
     <string name="app_name">base</string>
 
+    <string name="episodes">Episodes</string>
+
     <integer name="transition_duration">220</integer>
     <integer name="transition_vertical_duration">380</integer>
     <integer name="alpha_transition_duration">220</integer>
+
+
+    <dimen name="xxx_enormous">48dp</dimen>
+    <dimen name="xx_enormous">46dp</dimen>
+    <dimen name="x_enormous">44dp</dimen>
+    <dimen name="enormous">42dp</dimen>
+    <dimen name="xxx_large">40dp</dimen>
+    <dimen name="xx_large">38dp</dimen>
+    <dimen name="x_large">36dp</dimen>
+    <dimen name="large">34dp</dimen>
+    <dimen name="xxx_big">32dp</dimen>
+    <dimen name="xx_big">30dp</dimen>
+    <dimen name="x_big">28dp</dimen>
+    <dimen name="big">26dp</dimen>
+    <dimen name="xxx_medium">24dp</dimen>
+    <dimen name="xx_medium">22dp</dimen>
+    <dimen name="x_medium">20dp</dimen>
+    <dimen name="medium">18dp</dimen>
+    <dimen name="xxx_small">16dp</dimen>
+    <dimen name="xx_small">14dp</dimen>
+    <dimen name="x_small">12dp</dimen>
+    <dimen name="small">10dp</dimen>
+    <dimen name="xxx_tiny">8dp</dimen>
+    <dimen name="xx_tiny">6dp</dimen>
+    <dimen name="x_tiny">4dp</dimen>
+    <dimen name="tiny">2dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <string name="questions">Questions</string>
+    <string name="rick_and_morty">Rick and Morty</string>
+    <string name="open_ai">Open AI</string>
 </resources>

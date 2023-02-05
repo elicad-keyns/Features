@@ -1,8 +1,8 @@
 package ek.features.ui.main
 
-import ek.features.base.infrastructure.MviViewEvent
-import ek.features.base.infrastructure.MviViewIntent
-import ek.features.base.infrastructure.MviViewState
+import ek.core.infrastructure.MviViewEvent
+import ek.core.infrastructure.MviViewIntent
+import ek.core.infrastructure.MviViewState
 
 sealed class MainIntent : MviViewIntent {
     object OnViewCreated : MainIntent()
