@@ -2,21 +2,33 @@ package ek.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import ek.core.AnimationSets
 import ek.core.Navigation
+import ek.core.Toolbar
+import ek.features.databinding.ActivityMainBinding
 import ek.features.ui.main.MainFragment
+import ek.rickandmorty.databinding.FragmentEpisodesBinding
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), Navigation {
+class MainActivity : AppCompatActivity(), Navigation, Toolbar {
+
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(
         savedInstanceState: Bundle?
     ) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        _binding = ActivityMainBinding.inflate(layoutInflater).apply {
+
+        }
+
+        setContentView(binding.root)
         if (savedInstanceState == null) {
             replace(
                 MainFragment.TAG,
@@ -66,4 +78,6 @@ class MainActivity : AppCompatActivity(), Navigation {
             )
         }
     }
+
+    override fun getToolbar(): MaterialToolbar = binding.toolbar
 }

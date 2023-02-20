@@ -7,10 +7,13 @@ import ek.core.model.Episode
 
 sealed class EpisodesIntent : MviViewIntent {
     object OnViewCreated: EpisodesIntent()
+
     data class EpisodesLoaded(val episodes: List<Episode>): EpisodesIntent()
 }
 sealed class EpisodesEvent : MviViewEvent {
     object CloseScreen: EpisodesEvent()
+
+    data class ShowLoader(val visible: Boolean): EpisodesEvent()
 }
 data class EpisodesState(
     val error: Error? = null,

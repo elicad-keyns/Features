@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import ek.core.AnimationSets
-import ek.core.Navigation
+import ek.core.*
 import ek.core.infrastructure.MviView
 import ek.core.model.Feature
 import ek.features.databinding.FragmentMainBinding
@@ -36,8 +35,10 @@ class MainFragment : Fragment(), MviView<MainState, MainEvent> {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false).apply {
-//            questions.setOnClickListener { startEpisodeScreen() }
-            toolbar.title = getString(ek.base.R.string.app_name).uppercase()
+            with((activity as Toolbar).getToolbar()) {
+                title = getString(ek.base.R.string.app_name).uppercase()
+                removeNavigationIcon()
+            }
 
             features.adapter = FeaturesAdapter { startFeatureScreen(it) }
             (features.adapter as FeaturesAdapter).setItems(generateFeatures())
@@ -109,20 +110,6 @@ class MainFragment : Fragment(), MviView<MainState, MainEvent> {
                 "AI",
                 EpisodesFragment.TAG,
                 colors[1]
-            ),
-            Feature(
-                "Lorem ipsum",
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
-                "Excepteur",
-                EpisodesFragment.TAG,
-                colors[2]
-            ),
-            Feature(
-                "Ipsum lorem",
-                "Iste natus error sit voluptatem accusantium sed ut perspiciatis unde omnis",
-                "Voluptatem",
-                EpisodesFragment.TAG,
-                colors[3]
             )
         )
     }

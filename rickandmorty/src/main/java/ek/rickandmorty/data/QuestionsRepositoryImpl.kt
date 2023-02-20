@@ -6,13 +6,9 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 class QuestionsRepositoryImpl @Inject constructor(
+    private val ramApiService: RAMApiService
 ) : QuestionsRepository {
-
-    private val ramApiService = RAMApiService.create()
-
-    override fun requestQuestions(): String = "KEK"
 
     override fun requestAllEpisodes(): Single<BaseEpisode> =
         ramApiService.getAllEpisodes()
-
 }

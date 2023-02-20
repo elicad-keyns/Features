@@ -13,16 +13,4 @@ interface RAMApiService {
 
     @GET("episode/")
     fun getAllEpisodes(): Single<BaseEpisode>
-
-    companion object Factory {
-        fun create(): RAMApiService {
-            val retrofit: Retrofit = Retrofit.Builder()
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constants.RICK_AND_MORTY_BASE_API)
-                .build()
-
-            return retrofit.create(RAMApiService::class.java)
-        }
-    }
 }

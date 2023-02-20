@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
+import ek.core.Toolbar
 import ek.core.infrastructure.MviView
 import ek.core.setNavigationIcon
-import ek.rickandmorty.R
 import ek.rickandmorty.databinding.FragmentEpisodesBinding
 import ek.rickandmorty.domain.EpisodesAdapter
 
@@ -31,8 +32,10 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
             episodes.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             episodes.adapter = EpisodesAdapter() { }
 
-            toolbar.title = getString(ek.base.R.string.episodes).uppercase()
-            toolbar.setNavigationIcon { activity?.onBackPressedDispatcher?.onBackPressed() }
+            with((activity as Toolbar).getToolbar()) {
+                title = getString(ek.base.R.string.episodes).uppercase()
+                setNavigationIcon { activity?.onBackPressedDispatcher?.onBackPressed() }
+            }
         }
         return binding.root
     }
@@ -57,8 +60,13 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
 
     override fun handleViewEvent(
         event: EpisodesEvent
-    ) {
+    ) = when(event) {
+        is EpisodesEvent.ShowLoader -> showLoader(event.visible)
+        else -> Unit
+    }
 
+    private fun showLoader(visible: Boolean) = with(binding) {
+        progressBar.isVisible = visible
     }
 
     companion object {

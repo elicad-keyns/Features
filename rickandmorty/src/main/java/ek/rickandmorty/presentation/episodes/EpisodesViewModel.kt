@@ -1,18 +1,17 @@
 package ek.rickandmorty.presentation.episodes
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ek.core.BaseViewModel
 import ek.core.LiveEvent
+import ek.core.domain.RxTransformerFactory
 import ek.rickandmorty.data.QuestionsRepository
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 @HiltViewModel
 class EpisodesViewModel @Inject constructor(
-    private val repository: QuestionsRepository
+    private val repository: QuestionsRepository,
+    private val rxTransformerFactory: RxTransformerFactory,
 ) : BaseViewModel<EpisodesIntent, EpisodesEvent, EpisodesState>() {
 
     init {
@@ -40,8 +39,9 @@ class EpisodesViewModel @Inject constructor(
 
     private fun getAllEpisodes() {
         repository.requestAllEpisodes()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .compose(rxTransformerFactory.getIoToMainSingle())
+            .doOnSubscribe { pushEvent(EpisodesEvent.ShowLoader(true)) }
+            .doAfterTerminate { pushEvent(EpisodesEvent.ShowLoader(false)) }
             .subscribe(
                 { episodes -> pushIntent(EpisodesIntent.EpisodesLoaded(episodes.results)) },
                 { error -> error.printStackTrace() }

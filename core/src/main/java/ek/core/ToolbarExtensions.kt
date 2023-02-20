@@ -11,3 +11,8 @@ inline fun MaterialToolbar.setNavigationIcon(
     setNavigationIcon(icon)
     setNavigationOnClickListener { onClick() }
 }
+
+fun MaterialToolbar.removeNavigationIcon() {
+    navigationIcon = null
+}
+
