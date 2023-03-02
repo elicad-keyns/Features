@@ -6,4 +6,5 @@
     <string name="rick_and_morty">Рик и Морти</string>
     <string name="episodes">Эпизоды</string>
     <string name="open_ai">Open AI</string>
+    <string name="episode">Эпизод</string>
 </resources>

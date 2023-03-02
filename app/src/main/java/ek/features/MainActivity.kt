@@ -2,7 +2,6 @@ package ek.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.appbar.MaterialToolbar
@@ -12,7 +11,6 @@ import ek.core.Navigation
 import ek.core.Toolbar
 import ek.features.databinding.ActivityMainBinding
 import ek.features.ui.main.MainFragment
-import ek.rickandmorty.databinding.FragmentEpisodesBinding
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), Navigation, Toolbar {
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity(), Navigation, Toolbar {
     ) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater).apply {
-
+            getString(R.string.app_name)
         }
 
         setContentView(binding.root)

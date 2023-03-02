@@ -13,20 +13,28 @@ class EpisodesAdapter(
 
     private var episodes: List<Episode> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): EpisodeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return EpisodeViewHolder(
             EpisodeViewHolderBinding.inflate(inflater, parent, false)
         ) { onClick(it) }
     }
 
-    override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: EpisodeViewHolder,
+        position: Int
+    ) {
         holder.bind(episodes[position])
     }
 
     override fun getItemCount(): Int = episodes.size
 
-    fun setItems(items: List<Episode>) {
+    fun setItems(
+        items: List<Episode>
+    ) {
         episodes = items
         notifyDataSetChanged()
     }

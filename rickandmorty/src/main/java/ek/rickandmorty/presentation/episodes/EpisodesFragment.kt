@@ -10,11 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
+import ek.core.AnimationSets
+import ek.core.Navigation
 import ek.core.Toolbar
 import ek.core.infrastructure.MviView
+import ek.core.model.Episode
 import ek.core.setNavigationIcon
 import ek.rickandmorty.databinding.FragmentEpisodesBinding
 import ek.rickandmorty.domain.EpisodesAdapter
+import ek.rickandmorty.presentation.episode.EpisodeFragment
 
 @AndroidEntryPoint
 class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
@@ -30,7 +34,7 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
     ): View {
         _binding = FragmentEpisodesBinding.inflate(inflater, container, false).apply {
             episodes.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            episodes.adapter = EpisodesAdapter() { }
+            episodes.adapter = EpisodesAdapter { startEpisodeScreen(it) }
 
             with((activity as Toolbar).getToolbar()) {
                 title = getString(ek.base.R.string.episodes).uppercase()
@@ -67,6 +71,14 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
 
     private fun showLoader(visible: Boolean) = with(binding) {
         progressBar.isVisible = visible
+    }
+
+    private fun startEpisodeScreen(episode: Episode) {
+        (activity as Navigation).navigate(
+            EpisodeFragment.TAG,
+            EpisodeFragment.newInstance(episode),
+            AnimationSets.CROSS_FADE
+        )
     }
 
     companion object {

@@ -2,6 +2,7 @@
     <string name="app_name">base</string>
 
     <string name="episodes">Episodes</string>
+    <string name="episode">Episode</string>
 
     <integer name="transition_duration">220</integer>
     <integer name="transition_vertical_duration">380</integer>

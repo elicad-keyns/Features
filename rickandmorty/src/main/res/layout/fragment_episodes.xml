@@ -8,8 +8,8 @@
         android:id="@+id/episodes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/xxx_small"
-        android:paddingEnd="@dimen/xxx_small"
+        android:paddingStart="@dimen/xxx_tiny"
+        android:paddingEnd="@dimen/xxx_tiny"
         tools:itemCount="5"
         tools:listitem="@layout/episode_view_holder" />
 

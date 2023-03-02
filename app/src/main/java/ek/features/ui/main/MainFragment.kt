@@ -23,13 +23,6 @@ class MainFragment : Fragment(), MviView<MainState, MainEvent> {
 
     private val viewModel by viewModels<MainViewModel>()
 
-
-    override fun onCreate(
-        savedInstanceState: Bundle?
-    ) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -76,11 +69,11 @@ class MainFragment : Fragment(), MviView<MainState, MainEvent> {
 
     private fun startFeatureScreen(feature: Feature) = with(activity as Navigation) {
         when (feature.screenTag) {
-            EpisodesFragment.TAG -> startEpisodeScreen()
+            EpisodesFragment.TAG -> startEpisodesScreen()
         }
     }
 
-    private fun startEpisodeScreen() = with(activity as Navigation) {
+    private fun startEpisodesScreen() = with(activity as Navigation) {
         navigate(
             EpisodesFragment.TAG,
             EpisodesFragment.newInstance(),

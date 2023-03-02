@@ -1,9 +1,6 @@
 package ek.core.domain
 
-import io.reactivex.Completable
-import io.reactivex.CompletableTransformer
-import io.reactivex.Single
-import io.reactivex.SingleTransformer
+import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -33,6 +30,37 @@ class RxTransformerFactory {
         return CompletableTransformer { upstream: Completable ->
             upstream
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    /**
+     * io -> main schedulers
+     * для запросов из удалённого/локального репозитория
+     *
+     * @param <R> любой тип
+     * @return поток с любым типом
+    </R> */
+    fun <R> getIoToMainObservable(): ObservableTransformer<R, R> {
+        return ObservableTransformer { upstream: Observable<R> ->
+            upstream
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    fun <R> getComputationToMainSingle(): SingleTransformer<R, R> {
+        return SingleTransformer { upstream: Single<R> ->
+            upstream
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+        }
+    }
+
+    fun <R> getComputationToMainObservable(): ObservableTransformer<R, R> {
+        return ObservableTransformer { upstream: Observable<R> ->
+            upstream
+                .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
         }
     }

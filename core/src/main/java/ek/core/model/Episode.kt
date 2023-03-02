@@ -1,6 +1,7 @@
 package ek.core.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Episode (
 	@SerializedName("id")
@@ -17,4 +18,4 @@ data class Episode (
 	val url : String,
 	@SerializedName("created")
 	val created : String
-)
+): Serializable
