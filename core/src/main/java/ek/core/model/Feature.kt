@@ -1,6 +1,5 @@
 package ek.core.model
 
-
 data class Feature(
     val name: String,
     val description: String,

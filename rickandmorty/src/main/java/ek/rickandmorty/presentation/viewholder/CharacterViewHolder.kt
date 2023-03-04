@@ -1,8 +1,9 @@
 package ek.rickandmorty.presentation.viewholder
 
+import android.graphics.Color
 import com.bumptech.glide.Glide
-import ek.core.BaseViewHolder
-import ek.core.model.Character
+import ek.core.base.BaseViewHolder
+import ek.network.model.Character
 import ek.rickandmorty.databinding.CharacterViewHolderBinding
 
 class CharacterViewHolder(
@@ -21,7 +22,13 @@ class CharacterViewHolder(
 
         characterName.text = item.name
         characterSpecies.text = item.species
-        characterStatus.text = item.status
+        with (characterStatus) {
+            text = item.status
+            if (item.status == "Alive")
+                setTextColor(Color.GREEN)
+            else
+                setTextColor(Color.RED)
+        }
         characterLastLocation.text = item.location.name
         characterFirstSeen.text = item.origin.name
     }

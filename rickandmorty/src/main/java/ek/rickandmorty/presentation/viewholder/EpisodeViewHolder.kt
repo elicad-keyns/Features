@@ -1,8 +1,7 @@
 package ek.rickandmorty.presentation.viewholder
 
-import ek.core.BaseViewHolder
-import ek.core.model.BaseEpisode
-import ek.core.model.Episode
+import ek.core.base.BaseViewHolder
+import ek.network.model.Episode
 import ek.rickandmorty.databinding.EpisodeViewHolderBinding
 
 class EpisodeViewHolder(

@@ -1,8 +1,7 @@
 package ek.features.ui.viewholder
 
 import android.content.res.ColorStateList
-import android.graphics.Color
-import ek.core.BaseViewHolder
+import ek.core.base.BaseViewHolder
 import ek.core.model.Feature
 import ek.features.databinding.FeatureViewHolderBinding
 

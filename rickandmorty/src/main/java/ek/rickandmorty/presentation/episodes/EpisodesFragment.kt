@@ -14,10 +14,11 @@ import ek.core.AnimationSets
 import ek.core.Navigation
 import ek.core.Toolbar
 import ek.core.infrastructure.MviView
-import ek.core.model.Episode
+import ek.network.model.Episode
 import ek.core.setNavigationIcon
 import ek.rickandmorty.databinding.FragmentEpisodesBinding
 import ek.rickandmorty.domain.EpisodesAdapter
+import ek.rickandmorty.presentation.episode.EpisodeEvent
 import ek.rickandmorty.presentation.episode.EpisodeFragment
 
 @AndroidEntryPoint
@@ -40,6 +41,8 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
                 title = getString(ek.base.R.string.episodes).uppercase()
                 setNavigationIcon { activity?.onBackPressedDispatcher?.onBackPressed() }
             }
+
+            errorReload.setOnClickListener { viewModel.pushIntent(EpisodesIntent.ReloadScreen) }
         }
         return binding.root
     }
@@ -66,11 +69,16 @@ class EpisodesFragment : Fragment(), MviView<EpisodesState, EpisodesEvent> {
         event: EpisodesEvent
     ) = when(event) {
         is EpisodesEvent.ShowLoader -> showLoader(event.visible)
+        is EpisodesEvent.ShowError -> showError(event.visible)
         else -> Unit
     }
 
     private fun showLoader(visible: Boolean) = with(binding) {
         progressBar.isVisible = visible
+    }
+
+    private fun showError(visible: Boolean) = with(binding) {
+        errorContainer.isVisible = visible
     }
 
     private fun startEpisodeScreen(episode: Episode) {

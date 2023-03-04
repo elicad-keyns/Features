@@ -1,14 +1,17 @@
 package ek.rickandmorty.data
 
-import ek.core.model.BaseEpisode
+import ek.network.model.BaseEpisode
 import io.reactivex.Single
-import ek.core.model.Character
+import ek.network.model.Character
 import io.reactivex.Observable
-import java.net.IDN
 
 interface QuestionsRepository {
 
     fun requestAllEpisodes() : Single<BaseEpisode>
 
+    suspend fun requestAllEpisodesCoroutines() : BaseEpisode
+
     fun requestCharacter(id: String) : Observable<Character>
+
+    suspend fun requestCharacterCoroutine(id: String) : Character
 }

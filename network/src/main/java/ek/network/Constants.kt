@@ -1,4 +1,4 @@
-package ek.network.model
+package ek.network
 
 object Constants {
     const val RICK_AND_MORTY_BASE_API = "https://rickandmortyapi.com/api/"

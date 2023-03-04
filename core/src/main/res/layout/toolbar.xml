@@ -41,7 +41,7 @@
                 android:layout_marginEnd="@dimen/x_small"
                 android:layout_marginBottom="@dimen/x_small"
                 android:padding="@dimen/x_tiny"
-                android:src="@drawable/back_arrow" />
+                android:src="@drawable/ic_back_arrow" />
 
         </RelativeLayout>
 

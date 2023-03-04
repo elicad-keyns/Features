@@ -11,10 +11,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import ek.core.Toolbar
 import ek.core.getSerializableOptimized
 import ek.core.infrastructure.MviView
-import ek.core.model.Episode
+import ek.network.model.Episode
 import ek.rickandmorty.databinding.FragmentEpisodeBinding
 import ek.rickandmorty.domain.CharactersAdapter
-import ek.core.model.Character
+import ek.network.model.Character
 
 @AndroidEntryPoint
 class EpisodeFragment : Fragment(), MviView<EpisodeState, EpisodeEvent> {

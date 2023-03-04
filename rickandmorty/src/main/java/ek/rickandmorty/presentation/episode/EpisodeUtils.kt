@@ -3,8 +3,8 @@ package ek.rickandmorty.presentation.episode
 import ek.core.infrastructure.MviViewEvent
 import ek.core.infrastructure.MviViewIntent
 import ek.core.infrastructure.MviViewState
-import ek.core.model.Episode
-import ek.core.model.Character
+import ek.network.model.Episode
+import ek.network.model.Character
 
 sealed class EpisodeIntent : MviViewIntent {
     data class OnViewCreated(val episode: Episode?): EpisodeIntent()

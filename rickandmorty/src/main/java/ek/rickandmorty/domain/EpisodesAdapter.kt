@@ -3,7 +3,7 @@ package ek.rickandmorty.domain
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ek.core.model.Episode
+import ek.network.model.Episode
 import ek.rickandmorty.databinding.EpisodeViewHolderBinding
 import ek.rickandmorty.presentation.viewholder.EpisodeViewHolder
 

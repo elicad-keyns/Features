@@ -2,7 +2,7 @@ package ek.features.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ek.core.BaseViewModel
+import ek.core.base.BaseViewModel
 import ek.core.LiveEvent
 import ek.features.data.MainRepository
 import javax.inject.Inject

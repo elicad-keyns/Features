@@ -3,13 +3,12 @@ package ek.rickandmorty.presentation.episode
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ek.core.BaseViewModel
+import ek.core.base.BaseViewModel
 import ek.core.LiveEvent
 import ek.core.domain.RxTransformerFactory
-import ek.core.model.Episode
+import ek.network.model.Episode
 import ek.rickandmorty.data.QuestionsRepository
 import io.reactivex.Observable
-import io.reactivex.Single
 import javax.inject.Inject
 
 @HiltViewModel
@@ -59,6 +58,12 @@ class EpisodeViewModel @Inject constructor(
                     Log.d("Characters", e.stackTraceToString())
                 }
             ).disposeOnCleared()
+    }
+
+    private fun getAllEpisodesCoroutine(episode: Episode) {
+        val characterIds = episode.characters.map {
+            it.split("/").last()
+        }
     }
 
 }

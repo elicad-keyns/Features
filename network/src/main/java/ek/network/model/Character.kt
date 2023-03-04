@@ -1,4 +1,4 @@
-package ek.core.model
+package ek.network.model
 
 import com.google.gson.annotations.SerializedName
 

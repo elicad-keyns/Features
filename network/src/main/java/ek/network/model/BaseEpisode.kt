@@ -1,10 +1,10 @@
-package ek.core.model
+package ek.network.model
 
 import com.google.gson.annotations.SerializedName
 
 data class BaseEpisode (
-	@SerializedName("info")
+    @SerializedName("info")
 	val info : Info,
-	@SerializedName("results")
+    @SerializedName("results")
 	val results : List<Episode>
 )

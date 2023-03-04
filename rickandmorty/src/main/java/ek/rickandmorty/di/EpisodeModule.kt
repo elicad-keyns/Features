@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ek.network.model.Constants
-import ek.network.services.RAMApiService
+import ek.network.Constants
+import ek.network.api.RAMApiService
 import ek.rickandmorty.data.QuestionsRepository
 import ek.rickandmorty.data.QuestionsRepositoryImpl
 import retrofit2.Retrofit

@@ -1,8 +1,8 @@
 package ek.rickandmorty.data
 
-import ek.core.model.BaseEpisode
-import ek.core.model.Character
-import ek.network.services.RAMApiService
+import ek.network.model.BaseEpisode
+import ek.network.model.Character
+import ek.network.api.RAMApiService
 import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
@@ -14,6 +14,12 @@ class QuestionsRepositoryImpl @Inject constructor(
     override fun requestAllEpisodes(): Single<BaseEpisode> =
         ramApiService.getAllEpisodes()
 
+    override suspend fun requestAllEpisodesCoroutines(): BaseEpisode =
+        ramApiService.getAllEpisodesCoroutines()
+
     override fun requestCharacter(id: String): Observable<Character> =
         ramApiService.getCharacterById(id)
+
+    override suspend fun requestCharacterCoroutine(id: String): Character =
+        ramApiService.getCharacterByIdCoroutine(id)
 }

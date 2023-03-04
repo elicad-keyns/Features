@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ek.rickandmorty.presentation.viewholder.CharacterViewHolder
-import ek.core.model.Character
+import ek.network.model.Character
 import ek.rickandmorty.databinding.CharacterViewHolderBinding
 
 class CharactersAdapter(

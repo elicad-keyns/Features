@@ -7,4 +7,6 @@
     <string name="episodes">Эпизоды</string>
     <string name="open_ai">Open AI</string>
     <string name="episode">Эпизод</string>
+    <string name="network_error_text">Ошибка подключения</string>
+    <string name="reload">Перезагрузить</string>
 </resources>

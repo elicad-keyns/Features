@@ -1,7 +1,8 @@
-package ek.core
+package ek.core.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import ek.core.LiveEvent
 import ek.core.infrastructure.MviViewEvent
 import ek.core.infrastructure.MviViewIntent
 import ek.core.infrastructure.MviViewState

@@ -22,9 +22,7 @@ class MainActivity : AppCompatActivity(), Navigation, Toolbar {
         savedInstanceState: Bundle?
     ) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater).apply {
-            getString(R.string.app_name)
-        }
+        _binding = ActivityMainBinding.inflate(layoutInflater).apply { }
 
         setContentView(binding.root)
         if (savedInstanceState == null) {
